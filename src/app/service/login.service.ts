@@ -15,7 +15,7 @@ export class LoginService {
     private http: HttpClient,
     private route: Router
   ) { 
-    this.usersUrl = 'http://localhost:8085/gestionUtilisateur';
+    this.usersUrl = 'http://localhost:8081';
   }
 
   private hasToken(): boolean {
@@ -29,7 +29,7 @@ export class LoginService {
         return response;
       })).subscribe((res) => {
         if (res != null) {
-          this.route.navigate(['/admin']);
+          this.route.navigate(['/home']);
           this.authStatus.next(true);
         } else {
           localStorage.clear()
