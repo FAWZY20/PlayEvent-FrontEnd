@@ -21,17 +21,17 @@
             </div>
             <div class="bloc-info-user">
                 <div>
-                    <p>Nom Prenom</p>
+                    <p>{{utilisateur.nom}} {{utilisateur.prenom}}</p>
                 </div>
                 <div>
-                    <p>Email</p>
+                    <p>{{utilisateur.mail}}</p>
                 </div>
             </div>
         </div>
         <div>
             <ul class="list-link-verticalMenu">
                 <li class="link-verticalMenu"><a href=""><img src="../../../assets/icon/setting.png" class="link-img-verticalMenu" alt="setting" height="30">Paramètre</a></li>
-                <li class="link-verticalMenu"><a href=""><img src="../../../assets/icon/arrow.png" class="link-img-verticalMenu" alt="logout" height="30"> Se déconnecter</a></li>
+                <li class="link-verticalMenu"><a (click)="disconet()"><img src="../../../assets/icon/arrow.png" class="link-img-verticalMenu" alt="logout" height="30"> Se déconnecter</a></li>
             </ul>
         </div>
     </div>

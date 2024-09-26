@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Utilisateur } from '../dataModels/utilisateur';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
+
+import { UtilisateurService } from './utilisateur.service';
 
 @Injectable({
   providedIn: 'root'
@@ -37,4 +39,12 @@ export class LoginService {
         }
       });
   }
+
+  logout(){
+    localStorage.removeItem("userAuth");
+    setTimeout(() => {
+      this.route.navigate(['']);
+    }, 500);
+  }
+
 }
