@@ -31,7 +31,7 @@ export class LoginService {
         return response;
       })).subscribe((res) => {
         if (res != null) {
-          this.route.navigate(['/home']);
+          this.route.navigate(['/admin']);
           this.authStatus.next(true);
         } else {
           localStorage.clear()
