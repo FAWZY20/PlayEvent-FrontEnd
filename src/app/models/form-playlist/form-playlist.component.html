@@ -1,0 +1,80 @@
+<div class="container-fluid formPlaylist-page page">
+    <div class="col-2">
+        <app-vertical-nav></app-vertical-nav>
+    </div>
+    <div class="col-10 page-content">
+        <p class="title">Nouvelle Playlist</p>
+        <div class="bloc-formPlaylist">
+            <div class="formPlaylist col-5">
+                <div>
+                    <p class="title-bloc">Information PlayList</p>
+                </div>
+                <div>
+                    <form class="bloc-form" (ngSubmit)="onSubmit()" #registerForm="ngForm">
+                        <div class="form-group row bloc-input">
+                            <label for="staticNom" class="col-sm-2 col-form-label">Nom</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" placeholder="Nom de la paylist" name="nom" [(ngModel)]="playlist.nom" required #nom="ngModel">
+                            </div>
+                        </div>
+                        <div class="form-group bloc-input">
+                            <label for="staticDescription" class="col-sm-2 col-form-label">Description</label>
+                            <textarea class="form-control" placeholder="Description de la playlist ..."
+                                id="exampleFormControlTextarea1" rows="5" name="description" [(ngModel)]="playlist.description" required #description="ngModel"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-warning btn-lg btn-block">Sauvegarder</button>
+                    </form>
+                </div>
+            </div>
+            <div class="formPlaylist col-5">
+                <div>
+                    <p class="title-bloc">Liste de Musique</p>
+                </div>
+                <div>
+                    <div>
+                        <div class="input-group rounded">
+                            <input type="search" [(ngModel)]="searchTerm" (input)="onSearch()"
+                                class="form-control rounded" placeholder="Chercher une muisque" aria-label="Search"
+                                aria-describedby="search-addon" />
+                            <span class="input-group-text border-0" id="search-addon">
+                                <img src="../../../assets/icon/chercher.png" height="15" alt="">
+                            </span>
+                        </div>
+                        <div>
+                            <ul class="list-search">
+                                <li class="list-index col" *ngFor="let song of data | slice:0:8">
+                                    <button type="button" (click)="addListSong(song)"
+                                        class="btn btn-link linkSearch">{{song.artist.name}} -
+                                        {{song.album.title}}</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="blocListSong">
+                            <li *ngFor="let song of listSong; let index = index" class="songItem">
+                                <div class="songInfo">
+                                    <div class="bloc-img-song">
+                                        <img class="img-song" [src]="song.cover" height="60" alt="">
+                                    </div>
+                                    <div>
+                                        {{song.artiste}} - {{song.titre}}
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="button" (click)="deleteSong(index)" class="btn btn-link"><img src="../../../assets/icon/delete-symbol.png" height="25" alt=""></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <div *ngIf="completTab" class="alert alert-danger" role="alert">
+                            la liste de musique et rempli 
+                        </div>
+                        <div *ngIf="songExist" class="alert alert-danger" role="alert">
+                            Cette musique à deja etait ajouter 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -20,7 +20,7 @@ export class PlaylistService {
 
   addPlaylist(playlist: Playlist){
     this.http.post<Playlist>(this.usersUrl + "/playlist", playlist).subscribe( () => {
-      console.log("bien enregistrer");
+      this.route.navigate(['/admin/playlist'])
     })
   }
 

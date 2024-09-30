@@ -3,3 +3,14 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+.page{
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction:row;
+}
+
+.page-content{
+    padding: 5%;
+}

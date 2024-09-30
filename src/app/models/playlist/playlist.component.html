@@ -1,0 +1,44 @@
+<div class="container-fluid page">
+    <div class="col-2">
+        <app-vertical-nav></app-vertical-nav>
+    </div>
+    <div class=" col-10 page-content">
+        <div class="title">
+            <div>
+                <p>Playlist Management</p>
+            </div>
+            <div>
+                <button type="button" (click)="newPlaylist()" class="btn btn-warning btn-lg btn-block">Ajouter</button>
+            </div>
+        </div>
+        <div class="bplaylist">
+            <div *ngFor="let playlists of listPlaylist | paginate: { itemsPerPage: 6, currentPage: p }" class="playlist col-3">
+                <div class="bloc-playlist">
+                    <div class="bloc-title-playlist">
+                        <div class="img-playlist">
+                            <img src="../../../assets/icon/group.png" [height]="20" alt="group">
+                        </div>
+                        <div>
+                            <p class="title-playlist">{{playlists.nom}}</p>
+                        </div>
+                        <div class="btn-favorite">
+
+                        </div>
+                    </div>
+                    <div class="bloc-description">
+                        <p>{{playlists.description}}</p>
+                    </div>
+                    <div class="btn-playlist">
+                        <div>
+                            <button type="button" class="btn btn-light">Modifier</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-warning">Supprimer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+.title {
+    font-weight: bold;
+    font-size: 45px;
+    display: flex;
+    margin-bottom: 5%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.bloc-formPlaylist{
+    display: flex;
+    flex-direction: row;
+}
+
+.formPlaylist{
+    padding: 2%;
+    margin-right: 5%;
+    background-color: #E4E6EA;
+    border-radius: 15px;
+    box-shadow: 1px 1px 12px 
+    #555;
+}
+
+.title-bloc{
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 10%;
+}
+
+.bloc-input{
+    margin-bottom: 7%;
+}
+label{
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.list-search{
+    background-color: white;
+    list-style: none;
+    padding: 0;
+}
+
+.linkSearch{
+    font-style: normal;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+}
+
+.list-index{
+    border-bottom: 1px solid rgba(146, 146, 146, 0.507);
+}
+
+.img-song{
+    border-radius: 100px;
+}
+
+.bloc-img-song{
+    margin-right: 5%;
+}
+.songItem, .songInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.blocListSong{
+    overflow: auto;
+    height: 250px;
+}
+
+.songItem{
+    justify-content: space-between;
+    margin-bottom: 4%;
+}

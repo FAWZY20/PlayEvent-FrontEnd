@@ -9,20 +9,28 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './models/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VerticalNavComponent } from './components/vertical-nav/vertical-nav.component';
+import { EvenementComponent } from './models/evenement/evenement.component';
+import { PlaylistComponent } from './models/playlist/playlist.component';
+import { FormPlaylistComponent } from './models/form-playlist/form-playlist.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConnexionComponent,
     HomeComponent,
-    VerticalNavComponent
+    VerticalNavComponent,
+    EvenementComponent,
+    PlaylistComponent,
+    FormPlaylistComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
