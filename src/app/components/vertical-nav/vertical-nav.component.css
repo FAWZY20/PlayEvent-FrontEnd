@@ -67,3 +67,7 @@
     color: black;
     font-weight: 600;
 }
+
+.link-disconect{
+    cursor: pointer;
+}
