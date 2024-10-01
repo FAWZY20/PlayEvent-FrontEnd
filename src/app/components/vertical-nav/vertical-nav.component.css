@@ -1,7 +1,7 @@
 .veticalNav{
     background-color: #E4E6EA;
     padding: 15px;
-    height: 100%;
+    height: 100vh;
 }
 
 .list-link-verticalMenu{
@@ -17,8 +17,9 @@
 }
 
 .bloc-link-navigation{
-    margin-bottom: 140%;
+    margin-bottom: 35vh;
 }
+
 .link-settigs{
     display: flex;
     flex-direction: column;

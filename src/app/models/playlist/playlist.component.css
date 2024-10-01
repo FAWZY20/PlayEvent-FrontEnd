@@ -16,6 +16,17 @@
     margin: 4%;
 }
 
+.notPlaylistTilte{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.blocNotPlaylistTilte{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .img-playlist {
     background-color: #d1d1d1;
     padding: 5%;

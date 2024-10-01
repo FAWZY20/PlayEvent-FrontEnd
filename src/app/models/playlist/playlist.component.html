@@ -11,34 +11,41 @@
                 <button type="button" (click)="newPlaylist()" class="btn btn-warning btn-lg btn-block">Ajouter</button>
             </div>
         </div>
-        <div class="bplaylist">
-            <div *ngFor="let playlists of listPlaylist | paginate: { itemsPerPage: 6, currentPage: p }" class="playlist col-3">
-                <div class="bloc-playlist">
-                    <div class="bloc-title-playlist">
-                        <div class="img-playlist">
-                            <img src="../../../assets/icon/group.png" [height]="20" alt="group">
+        <div *ngIf="listPlaylist.length != 0">
+            <div class="bplaylist">
+                <div *ngFor="let playlists of listPlaylist | paginate: { itemsPerPage: 6, currentPage: p }"
+                    class="playlist col-3">
+                    <div class="bloc-playlist">
+                        <div class="bloc-title-playlist">
+                            <div class="img-playlist">
+                                <img src="../../../assets/icon/group.png" [height]="20" alt="group">
+                            </div>
+                            <div>
+                                <p class="title-playlist">{{playlists.nom}}</p>
+                            </div>
                         </div>
-                        <div>
-                            <p class="title-playlist">{{playlists.nom}}</p>
+                        <div class="bloc-description">
+                            <p>{{playlists.description}}</p>
                         </div>
-                        <div class="btn-favorite">
-
-                        </div>
-                    </div>
-                    <div class="bloc-description">
-                        <p>{{playlists.description}}</p>
-                    </div>
-                    <div class="btn-playlist">
-                        <div>
-                            <button type="button" (click)="updatePlaylist(playlists.id)" class="btn btn-secondary">Modifier</button>
-                        </div>
-                        <div>
-                            <button type="button" class="btn btn-warning" (click)="deletePlaylist(playlists.nom)" >Supprimer</button>
+                        <div class="btn-playlist">
+                            <div>
+                                <button type="button" (click)="updatePlaylist(playlists.id)"
+                                    class="btn btn-secondary">Modifier</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-warning"
+                                    (click)="deletePlaylist(playlists.nom)">Supprimer</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div>
+                <pagination-controls *ngIf="listPlaylist.length != 0" (pageChange)="p = $event"></pagination-controls>
+            </div>
         </div>
-        <pagination-controls *ngIf="listPlaylist.length != 0" (pageChange)="p = $event"></pagination-controls>
+        <div class="blocNotPlaylistTilte" *ngIf="listPlaylist.length == 0">
+            <p class="notPlaylistTilte">Aucune Playlist n'existe</p>
+        </div>
     </div>
 </div>
