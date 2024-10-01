@@ -11,7 +11,7 @@ import { PlaylistService } from 'src/app/service/playlist.service';
 export class PlaylistComponent {
   listPlaylist: Playlist[] = []
   p: number = 1;
-  
+
   constructor(
     private route: Router,
     private playlistService: PlaylistService
@@ -20,6 +20,17 @@ export class PlaylistComponent {
 
   newPlaylist() {
     this.route.navigate(['/admin/playlist/newPlaylist']);
+  }
+
+  deletePlaylist(playlistNom: string) {
+    this.playlistService.deletePlaylist(playlistNom)
+  }
+
+  updatePlaylist(playlistId: string) {
+    this.playlistService.getPlaylistById(playlistId).subscribe(res => {
+      localStorage.setItem("playlist", JSON.stringify(res))
+      this.route.navigate(['/admin/playlist/updatePlaylist']);
+    })
   }
 
   ngOnInit() {

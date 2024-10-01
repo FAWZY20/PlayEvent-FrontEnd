@@ -13,6 +13,7 @@ import { EvenementComponent } from './models/evenement/evenement.component';
 import { PlaylistComponent } from './models/playlist/playlist.component';
 import { FormPlaylistComponent } from './models/form-playlist/form-playlist.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { UpdatePlaylistComponent } from './models/update-playlist/update-playlist.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     VerticalNavComponent,
     EvenementComponent,
     PlaylistComponent,
-    FormPlaylistComponent
+    FormPlaylistComponent,
+    UpdatePlaylistComponent
   ],
   imports: [
     BrowserModule,

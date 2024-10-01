@@ -30,15 +30,15 @@
                     </div>
                     <div class="btn-playlist">
                         <div>
-                            <button type="button" class="btn btn-light">Modifier</button>
+                            <button type="button" (click)="updatePlaylist(playlists.id)" class="btn btn-secondary">Modifier</button>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-warning">Supprimer</button>
+                            <button type="button" class="btn btn-warning" (click)="deletePlaylist(playlists.nom)" >Supprimer</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <pagination-controls *ngIf="listPlaylist.length != 0" (pageChange)="p = $event"></pagination-controls>
     </div>
 </div>

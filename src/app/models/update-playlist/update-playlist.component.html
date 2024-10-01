@@ -1,9 +1,9 @@
-<div class="container-fluid formPlaylist-page page">
+<div class="container-fluid home-page page">
     <div class="col-2">
         <app-vertical-nav></app-vertical-nav>
     </div>
-    <div class="col-10 page-content">
-        <p class="title">Nouvelle Playlist</p>
+    <div class=" col-10 page-content">
+        <p class="title">Modifier Playlist</p>
         <div class="bloc-formPlaylist">
             <div class="formPlaylist col-5">
                 <div>
@@ -12,36 +12,42 @@
                 <div>
                     <form class="bloc-form" (ngSubmit)="onSubmit()" #registerForm="ngForm">
                         <div class="form-group row bloc-input">
-                            <label for="staticNom" class="col-sm-2 col-form-label">Nom</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" placeholder="Nom de la paylist" name="nom" [(ngModel)]="playlist.nom" required #nom="ngModel">
+                            <div>
+                                <label for="staticNom" class="col col-form-label">Nom</label>
+                                <button type="button" (click)="updateNom()" class="btn btn-link"><img
+                                    src="../../../assets/icon/crayon.png" height="25" alt=""></button>
                             </div>
-                            <br/>
-                            <br/>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" placeholder="Nom de la paylist" name="nom"
+                                    [(ngModel)]="playlist.nom" required #nom="ngModel" [disabled]="disabledNom">
+                            </div>
+                            <br />
+                            <br />
                             <div *ngIf="nameExist" class="alert alert-danger" role="alert">
-                                Ce nom existe deja 
+                                Ce nom existe deja
                             </div>
                         </div>
                         <div class="form-group bloc-input">
-                            <label for="staticDescription" class="col-sm-2 col-form-label">Description</label>
+                            <div>
+                                <label for="staticDescription" class="col-sm-2 col-form-label">Description</label>
+                                <button type="button" (click)="updateDescription()" class="btn btn-link"><img
+                                    src="../../../assets/icon/crayon.png" height="25" alt=""></button>
+                            </div>
                             <textarea class="form-control" placeholder="Description de la playlist ..."
-                                id="exampleFormControlTextarea1" rows="5" name="description" [(ngModel)]="playlist.description" required #description="ngModel"></textarea>
+                                id="exampleFormControlTextarea1" rows="5" name="description"
+                                [(ngModel)]="playlist.description" required #description="ngModel"
+                                [disabled]="disabledDescription"></textarea>
                         </div>
-                        <button type="submit" [disabled]="!playlist.nom" class="btn btn-warning btn-lg btn-block">Sauvegarder</button>
+                        <button type="submit" [disabled]="!playlist.nom" class="btn btn-warning btn-lg btn-block">Mettre
+                            a jour</button>
                     </form>
                 </div>
             </div>
-            <div class="formPlaylist col-5">
+                <div class="formPlaylist col-5">
                 <div>
                     <p class="title-bloc">Liste de Musique</p>
                 </div>
                 <div>
-                    <div *ngIf="completTab" class="alert alert-danger" role="alert">
-                        la liste de musique et rempli 
-                    </div>
-                    <div *ngIf="songExist" class="alert alert-danger" role="alert">
-                        Cette musique à deja etait ajouter 
-                    </div>
                     <div>
                         <div class="input-group rounded">
                             <input type="search" [(ngModel)]="searchTerm" (input)="onSearch()"
@@ -55,8 +61,7 @@
                             <ul class="list-search">
                                 <li class="list-index col" *ngFor="let song of data | slice:0:8">
                                     <button type="button" (click)="addListSong(song)"
-                                        class="btn btn-link linkSearch">{{song.artist.name}} -
-                                        {{song.album.title}}</button>
+                                        class="btn btn-link linkSearch">{{song.artist.name}} - {{song.album.title}}</button>
                                 </li>
                             </ul>
                         </div>
@@ -77,6 +82,12 @@
                                 </div>
                             </li>
                         </ul>
+                        <div *ngIf="completTab" class="alert alert-danger" role="alert">
+                            la liste de musique et rempli 
+                        </div>
+                        <div *ngIf="songExist" class="alert alert-danger" role="alert">
+                            Cette musique à deja etait ajouter 
+                        </div>
                     </div>
                 </div>
             </div>
