@@ -23,6 +23,10 @@ export class UtilisateurService {
     return this.http.get<Utilisateur>(this.usersUrl + `/user/${userId}`)
   }
 
+  findUserByRole(userRole: string): Observable<any> {
+    return this.http.get<Utilisateur>(this.usersUrl + `/user/role/${userRole}`)
+  }
+
   
   decodeToken(): Observable<any>{
     let token: any = localStorage.getItem('userAuth');
