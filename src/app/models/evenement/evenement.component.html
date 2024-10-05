@@ -2,7 +2,50 @@
     <div class="col-2">
         <app-vertical-nav></app-vertical-nav>
     </div>
-    <div class="col-10">
-      
+    <div class="col-10 page-content">
+        <div class="title">
+            <div>
+                <p>Evenement Management</p>
+            </div>
+            <div>
+                <button type="button" (click)="newEvent()" class="btn btn-warning btn-lg btn-block">Ajouter</button>
+            </div>
+        </div>
+        <div *ngIf="listEvent.length != 0">
+            <div class="bplaylist">
+                <div *ngFor="let evenement of listEvent | paginate: { itemsPerPage: 6, currentPage: p }"
+                    class="playlist col-3">
+                    <div class="bloc-playlist">
+                        <div class="bloc-title-playlist">
+                            <div class="img-playlist">
+                                <img src="../../../assets/icon/group.png" [height]="20" alt="group">
+                            </div>
+                            <div>
+                                <p class="title-playlist">{{evenement.nom}}</p>
+                            </div>
+                        </div>
+                        <div class="bloc-description">
+                            <p>{{evenement.description}}</p>
+                        </div>
+                        <div class="btn-playlist">
+                            <div>
+                                <button type="button" (click)="updateEvent(evenement.id)"
+                                    class="btn btn-secondary">Modifier</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-warning"
+                                    (click)="deleteEvent(evenement.id)">Supprimer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <pagination-controls *ngIf="listEvent.length != 0" (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+        <div class="blocNotPlaylistTilte" *ngIf="listEvent.length == 0">
+            <p class="notPlaylistTilte">Aucune Evenement n'existe</p>
+        </div>
     </div>
 </div>

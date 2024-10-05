@@ -21,7 +21,7 @@ export class FormPlaylistComponent {
 
   constructor(
     private searchSongService: SearchSongService,
-    private playlistService: PlaylistService
+    private playlistService: PlaylistService,
   ) { this.playlist = new Playlist() }
 
 

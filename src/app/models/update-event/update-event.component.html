@@ -1,0 +1,119 @@
+<div class="container-fluid formPlaylist-page page">
+    <div class="col-2">
+        <app-vertical-nav></app-vertical-nav>
+    </div>
+    <div class="col-10 page-content">
+        <div class="bloc-formEvent">
+            <div class="col formEvent">
+                <div>
+                    <p class="title-bloc">Modifier Evenement</p>
+                </div>
+                <div>
+                    <form class="form-inline" (ngSubmit)="onSubmit()" #registerForm="ngForm">
+                        <div class="form-group row">
+                            <label for="nom">Nom</label>
+                            <input type="text" class="form-control" id="nom" name="nom" aria-describedby="nom"
+                                placeholder="Enter nom" [(ngModel)]="evenement.nom" required #nom="ngModel">
+                        </div>
+                        <div>
+                            <div class="form-group row">
+                                <label for="Date">Date</label>
+                                <input type="date" class="form-control" id="Date" aria-describedby="Date" name="date"
+                                    [(ngModel)]="evenement.date" (ngModelChange)="checkDate($event)" required
+                                    #date="ngModel">
+                            </div>
+                            <div *ngIf="errorDateEvent" class="alert alert-danger" role="alert">
+                                La date doit être superieur a celle de aujourd'hui !
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group row">
+                                <label for="HeureD">Heure Début</label>
+                                <input type="time" class="form-control" id="HeureD" aria-describedby="HeureD"
+                                    name="HeureD" [(ngModel)]="evenement.heureDebut">
+                            </div>
+                            <div class="form-group row">
+                                <label for="HeureF">Heure Fin</label>
+                                <input type="time" class="form-control" id="HeureF" aria-describedby="HeureF"
+                                    name="HeureF" [(ngModel)]="evenement.heureFin">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lieu">Lieu</label>
+                            <input type="search" class="form-control" id="lieu" name="lieu" aria-describedby="lieu"
+                                [(ngModel)]="searchTerm" (input)="onSearch()" [placeholder]="searchTerm">
+                            <ul class="list-search">
+                                <li class="list-index col" *ngFor="let localisations of data | slice:0:8">
+                                    <button type="button" (click)="addLocalisation(localisations)"
+                                        class="btn btn-link linkSearch"> {{localisations.properties.city}} -
+                                        {{localisations.properties.name}}</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="form-group row">
+                            <label for="playist" class="my-1 mr-2" for="inlineFormCustomSelectPref">PlayList</label>
+                            <select class="form-select" id="playist" name="playist" [(ngModel)]="playlistId">
+                                <option selected>Choiir votre Playlist</option>
+                                <option *ngFor="let playlist of listPlaylist" [value]="playlist.id">{{playlist.nom}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Animateur">Animateur</label>
+                            <select class="form-select" id="Animateur" name="Animateur"
+                                [(ngModel)]="evenement.animateurID">
+                                <option selected>Choisir l'animateur</option>
+                                <option *ngFor="let animateur of listAnimateur" [value]="animateur.id">
+                                    {{animateur.prenom}} {{animateur.nom}} </option>
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Description">Description</label>
+                            <textarea class="form-control" placeholder="Description de l'Evenement ..." id="Description"
+                                rows="5" name="description" [(ngModel)]="evenement.description"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-warning btn-lg btn-block btnSumit">Mettre à jour</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col formEvent">
+                <br>
+                <br>
+                <div>
+                    <div class="form-group row">
+                        <label for="invite">Email Invités</label>
+                        <div class="inviteForm">
+                            <div class="col">
+                                <input type="email" class="form-control" id="invite" style="border-radius: 0;"
+                                    aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="email">
+                            </div>
+                            <div class="col" style="display: contents;">
+                                <button (click)="addEmail(email)" [disabled]="!email" type="button" class="btn btn-warning"
+                                    style="border-radius: 0;">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="title-bloc">Liste des Invités</p>
+                    <div>
+                        <ul class="list-invite">
+                            <li class="invite" *ngFor="let invite of listInvitee; let index = index">
+                                <div class="col-10 invite-info">
+                                    <div class="initial">{{invite.charAt(0).toUpperCase()}}</div>
+                                    <div>
+                                        {{invite}}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <button type="button" (click)="deleteInvite(index)" class="btn btn-link"><img
+                                            src="../../../assets/icon/delete-symbol.png" height="25" alt=""></button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

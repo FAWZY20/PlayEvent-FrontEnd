@@ -10,6 +10,7 @@ import { PlaylistService } from 'src/app/service/playlist.service';
 })
 export class PlaylistComponent {
   listPlaylist: Playlist[] = []
+  isLoading: boolean = true;
   p: number = 1;
 
   constructor(

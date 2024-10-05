@@ -11,7 +11,7 @@
                 <button type="button" (click)="newPlaylist()" class="btn btn-warning btn-lg btn-block">Ajouter</button>
             </div>
         </div>
-        <div *ngIf="listPlaylist.length != 0">
+        <div *ngIf="listPlaylist.length != 0; else elseBlock" #thenBlock>
             <div class="bplaylist">
                 <div *ngFor="let playlists of listPlaylist | paginate: { itemsPerPage: 6, currentPage: p }"
                     class="playlist col-3">
@@ -44,8 +44,8 @@
                 <pagination-controls *ngIf="listPlaylist.length != 0" (pageChange)="p = $event"></pagination-controls>
             </div>
         </div>
-        <div class="blocNotPlaylistTilte" *ngIf="listPlaylist.length == 0">
+        <ng-template class="blocNotPlaylistTilte"  #elseBlock>
             <p class="notPlaylistTilte">Aucune Playlist n'existe</p>
-        </div>
+        </ng-template>
     </div>
 </div>

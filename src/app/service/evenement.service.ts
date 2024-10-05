@@ -17,10 +17,29 @@ export class EvenementService {
     this.usersUrl = 'http://localhost:8081';
   }
 
-  addEvent(evenement: Evenement){
-    this.http.post<Evenement>(this.usersUrl +"/evenement", evenement).subscribe(() => {
+  addEvent(evenement: Evenement) {
+    this.http.post<Evenement>(this.usersUrl + "/evenement", evenement).subscribe(() => {
       this.route.navigate(['/admin/evenement'])
     })
   }
 
+  deleteEvent(eventId: any) {
+    this.http.delete(this.usersUrl + `/evenement/${eventId}`).subscribe(() => {
+      window.location.reload();
+    })
+  }
+
+  getAllEvent(): Observable<any> {
+    return this.http.get(this.usersUrl + "/evenement")
+  }
+
+  getEventById(eventId: any): Observable<any> {
+    return this.http.get(this.usersUrl + `/evenement/${eventId}`)
+  }
+
+  updateEvent(evenement: Evenement) {
+    this.http.put(this.usersUrl + `/evenement`, evenement).subscribe(() => {
+      this.route.navigate(['/admin/evenement'])
+    })
+  }
 }

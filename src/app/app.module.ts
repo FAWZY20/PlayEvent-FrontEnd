@@ -14,6 +14,8 @@ import { PlaylistComponent } from './models/playlist/playlist.component';
 import { FormPlaylistComponent } from './models/form-playlist/form-playlist.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { UpdatePlaylistComponent } from './models/update-playlist/update-playlist.component';
+import { FormEventComponent } from './models/form-event/form-event.component';
+import { UpdateEventComponent } from './models/update-event/update-event.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { UpdatePlaylistComponent } from './models/update-playlist/update-playlis
     EvenementComponent,
     PlaylistComponent,
     FormPlaylistComponent,
-    UpdatePlaylistComponent
+    UpdatePlaylistComponent,
+    FormEventComponent,
+    UpdateEventComponent
   ],
   imports: [
     BrowserModule,

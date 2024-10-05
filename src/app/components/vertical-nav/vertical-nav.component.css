@@ -2,6 +2,7 @@
     background-color: #E4E6EA;
     padding: 15px;
     height: 100vh;
+    position: fixed;
 }
 
 .list-link-verticalMenu{

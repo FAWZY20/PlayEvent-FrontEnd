@@ -92,3 +92,135 @@ label{
     justify-content: space-between;
     margin-bottom: 4%;
 }
+
+.title {
+    font-weight: bold;
+    font-size: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bplaylist{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.playlist{
+    margin: 4%;
+}
+
+.notPlaylistTilte{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.blocNotPlaylistTilte{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-playlist {
+    background-color: #d1d1d1;
+    padding: 5%;
+    border-radius: 5px;
+    margin-right: 4%;
+}
+
+.title-playlist {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bloc-title-playlist {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.btn-playlist {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bloc-playlist {
+    box-shadow: 1px 1px 12px #555;
+    padding: 16px;
+}
+
+.bloc-description{
+    margin-top: 8%;
+    height: 3vw;
+    margin-bottom: 10%;
+}
+.bloc-formEvent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-;
+    background-color: #E4E6EA;
+    box-shadow: 1px 1px 12px #555;
+}
+
+.title-bloc {
+    margin-bottom: 15px;
+}
+
+.formEvent {
+    padding: 2%;
+    border-radius: 15px;
+}
+
+.form-group {
+    margin-bottom: 2%;
+}
+
+.btnSumit {
+    margin-top: 2%;
+    color: black;
+    font-weight: bold;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+.inviteForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.list-invite {
+    list-style-type: none;
+    overflow: auto;
+    height: 15vw;
+}
+
+.invite {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.invite-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 23px;
+    color: black;
+}
+
+.initial{
+    background-color: black;
+    color: white;
+    padding: 1%;
+    margin-right: 2%;
+    border-radius: 100px;
+    width: 10%;
+    padding: 9px;
+    text-align: center;
+}
