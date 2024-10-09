@@ -114,12 +114,13 @@ label{
 .notPlaylistTilte{
     font-weight: bold;
     font-size: 30px;
+    text-align: center;
 }
 
 .blocNotPlaylistTilte{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center !important;
 }
 
 .img-playlist {

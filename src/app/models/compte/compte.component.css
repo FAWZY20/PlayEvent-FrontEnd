@@ -1,0 +1,42 @@
+.blocTitle {
+    display: flex;
+    flex-direction: row;
+}
+
+.title {
+    font-size: 30px;
+    margin-right: 2%;
+}
+
+.btnNewAcount {
+    border: 1px solid black;
+    color: black;
+    font-weight: bold;
+    margin-top: 4%;
+}
+
+.selectAction,
+.bloc-selectAction {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bloc-selectAction {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.selectAction-input {
+    margin-right: 2%;
+}
+
+.checkUser {
+    box-shadow: 1px 1px 5px #555;
+}
+
+.checkAction {
+    display: flex;
+    justify-content: center;
+
+}

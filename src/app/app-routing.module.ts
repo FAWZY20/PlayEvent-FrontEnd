@@ -8,6 +8,8 @@ import { FormPlaylistComponent } from './models/form-playlist/form-playlist.comp
 import { UpdatePlaylistComponent } from './models/update-playlist/update-playlist.component';
 import { FormEventComponent } from './models/form-event/form-event.component';
 import { UpdateEventComponent } from './models/update-event/update-event.component';
+import { CompteComponent } from './models/compte/compte.component';
+import { FormUserComponent } from './models/form-user/form-user.component';
 
 const routes: Routes = [
   { path: "", component: ConnexionComponent },
@@ -15,15 +17,27 @@ const routes: Routes = [
     path: "admin",
     children: [
       { path: "", component: HomeComponent },
-      { path: "evenement", component: EvenementComponent },
+      {
+        path: "compte",
+        children: [
+          { path: "", component: CompteComponent },
+          { path: "newCompte", component: FormUserComponent },
+        ]
+      },
+      {
+        path: "evenement",
+        children: [
+          { path: "", component: EvenementComponent },
+          { path: "updateEvenement", component: UpdateEventComponent },
+          { path: "newEvent", component: FormEventComponent }
+        ]
+      },
       {
         path: "playlist",
         children: [
           { path: "", component: PlaylistComponent },
           { path: "newPlaylist", component: FormPlaylistComponent },
           { path: "updatePlaylist", component: UpdatePlaylistComponent },
-          { path: "updateEvenement", component: UpdateEventComponent },
-          { path: "newEvent", component: FormEventComponent }
         ]
       }
     ]

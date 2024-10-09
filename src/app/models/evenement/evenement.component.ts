@@ -24,12 +24,12 @@ export class EvenementComponent {
   updateEvent(eventId: any) {
     this.evenementService.getEventById(eventId).subscribe(res => {
       localStorage.setItem("Evenement", JSON.stringify(res))
-      this.route.navigate(['/admin/playlist/updateEvenement']);
+      this.route.navigate(['/admin/evenement/updateEvenement']);
     })
   }
 
   newEvent() {
-    this.route.navigate(['/admin/playlist/newEvent']);
+    this.route.navigate(['/admin/evenement/newEvent']);
   }
 
   ngOnInit() {

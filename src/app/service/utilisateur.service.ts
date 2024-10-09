@@ -18,6 +18,9 @@ export class UtilisateurService {
     this.usersUrl = 'http://localhost:8081';
   }
 
+  findallUser(): Observable<any> {
+    return this.http.get<Utilisateur[]>(this.usersUrl + `/user`)
+  }
 
   findUserByuserId(userId: string): Observable<any> {
     return this.http.get<Utilisateur>(this.usersUrl + `/user/${userId}`)
@@ -27,8 +30,23 @@ export class UtilisateurService {
     return this.http.get<Utilisateur>(this.usersUrl + `/user/role/${userRole}`)
   }
 
-  
-  decodeToken(): Observable<any>{
+  findUserByMail(mail: string): Observable<any> {
+    return this.http.get<Utilisateur>(this.usersUrl + `/user/mail/${mail}`)
+  }
+
+  addUser(utilisateur: Utilisateur): Observable<any> {
+    return this.http.post<Utilisateur>(this.usersUrl + "/user", utilisateur)
+  }
+
+  updateRole(userId: string, role: string) {
+    this.http.patch(this.usersUrl + `/user/role/${userId}`, role).subscribe(() => window.location.reload())
+  }
+
+  deleteUser(userId: string) {
+    this.http.delete(this.usersUrl + `/user/${userId}`).subscribe(() => window.location.reload())
+  }
+
+  decodeToken(): Observable<any> {
     let token: any = localStorage.getItem('userAuth');
     if (token) {
       let decodedToken: any = jwt_decode.jwtDecode(token);

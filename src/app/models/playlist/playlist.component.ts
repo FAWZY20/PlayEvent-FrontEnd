@@ -37,6 +37,7 @@ export class PlaylistComponent {
   ngOnInit() {
     this.playlistService.getAllPlaylist().subscribe(res => {
       this.listPlaylist = res
+      this.isLoading = false
     })
   }
 
