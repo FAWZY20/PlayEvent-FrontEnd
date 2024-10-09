@@ -53,7 +53,7 @@
                         <div class="form-group row">
                             <label for="playist" class="my-1 mr-2" for="inlineFormCustomSelectPref">PlayList</label>
                             <select class="form-select" id="playist" name="playist" [(ngModel)]="playlistId">
-                                <option selected>Choiir votre Playlist</option>
+                                <option value="" [disabled]="true">Choiir votre Playlist</option>
                                 <option *ngFor="let playlist of listPlaylist" [value]="playlist.id">{{playlist.nom}}
                                 </option>
                             </select>
@@ -62,7 +62,7 @@
                             <label for="Animateur">Animateur</label>
                             <select class="form-select" id="Animateur" name="Animateur"
                                 [(ngModel)]="evenement.animateurID">
-                                <option selected>Choisir l'animateur</option>
+                                <option [ngValue]="undefined" [disabled]="true">Choisir l'animateur</option>
                                 <option *ngFor="let animateur of listAnimateur" [value]="animateur.id">
                                     {{animateur.prenom}} {{animateur.nom}} </option>
                             </select>

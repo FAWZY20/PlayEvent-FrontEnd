@@ -19,25 +19,28 @@
                         <div class="col-5 bloc-selectAction">
                             <div class="col selectAction">
                                 <div class="selectAction-input">
-                                    <select class="form-select" [(ngModel)]="action" aria-label="Default select example">
-                                        <option selected>Actions groupées</option>
+                                    <select class="form-select" [(ngModel)]="action"
+                                        aria-label="Default select example">
+                                        <option  [disabled]="true" value="">Actions groupées</option>
                                         <option value="DELETE">Supprimer</option>
                                     </select>
                                 </div>
                                 <div class="d-grid gap-2">
-                                    <button type="button" (click)="actionUser(action)" class="btnNewAcount btn btn-light">Appliquer</button>
+                                    <button type="button" (click)="actionUser(action)"
+                                        class="btnNewAcount btn btn-light">Appliquer</button>
                                 </div>
                             </div>
                             <div class="col selectAction">
                                 <div class="selectAction-input">
-                                    <select class="form-select" [(ngModel)]="role" aria-label="Default select example">
-                                        <option selected>Changer de role pour ..</option>
+                                    <select class="form-select" [(ngModel)]="role">
+                                        <option  [disabled]="true" value="">Changer de role pour ..</option>
                                         <option value="ADMIN">Admin</option>
                                         <option value="ANIMATEUR">Animateur</option>
                                     </select>
                                 </div>
                                 <div class="d-grid gap-2">
-                                    <button type="button"(click)="updateRole(role)" class="btnNewAcount btn btn-light">Modifier</button>
+                                    <button type="button" (click)="updateRole(role)"
+                                        class="btnNewAcount btn btn-light">Modifier</button>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +63,8 @@
                                 <tbody>
                                     <tr *ngFor="let utilisateur of listUtilisateur; let index = index">
                                         <td class="checkAction"><input class="form-check-input checkUser"
-                                                type="checkbox" [(ngModel)]="utilisateur.selected" (ngModelChange)="addList(utilisateur)" id="option"></td>
+                                                type="checkbox" [(ngModel)]="utilisateur.selected"
+                                                (ngModelChange)="addList(utilisateur)" id="option"></td>
                                         <td>{{utilisateur.nom}}</td>
                                         <td>{{utilisateur.prenom}}</td>
                                         <td>{{utilisateur.mail}}</td>
@@ -72,21 +76,23 @@
                         <div class="col-5 bloc-selectAction">
                             <div class="col selectAction">
                                 <div class="selectAction-input">
-                                    <select class="form-select" [(ngModel)]="action" aria-label="Default select example">
-                                        <option selected>Actions groupées</option>
+                                    <select class="form-select" [(ngModel)]="action"
+                                        aria-label="Default select example">
+                                        <option  [disabled]="true" value="">Actions groupées</option>
                                         <option value="DELETE">Supprimer</option>
                                     </select>
                                 </div>
                                 <div class="d-grid gap-2">
-                                    <button type="button" (click)="actionUser(action)" class="btnNewAcount btn btn-light">Appliquer</button>
+                                    <button type="button" (click)="actionUser(action)"
+                                        class="btnNewAcount btn btn-light">Appliquer</button>
                                 </div>
                             </div>
                             <div class="col selectAction">
                                 <div class="selectAction-input">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Changer de role pour ..</option>
-                                        <option value="1">Admin</option>
-                                        <option value="2">Animateur</option>
+                                    <select class="form-select" [(ngModel)]="role" aria-label="Default select example">
+                                        <option value="" [disabled]="true">Changer de role pour ..</option>
+                                        <option value="ADMIN">Admin</option>
+                                        <option value="ANIMATEUR">Animateur</option>
                                     </select>
                                 </div>
                                 <div class="d-grid gap-2">

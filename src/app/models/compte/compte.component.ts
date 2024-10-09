@@ -12,9 +12,9 @@ export class CompteComponent {
   checkItem: any;
   listUtilisateur: Utilisateur[] = [];
   listUtilisateurSelect: Utilisateur[] = []
-  action: string = "Actions groupées";
+  action: string = "";
   errorAction: boolean = false;
-  role: string = "Changer de role pour ..";
+  role: string = "";
 
   constructor(
     private utilisateurService: UtilisateurService,
