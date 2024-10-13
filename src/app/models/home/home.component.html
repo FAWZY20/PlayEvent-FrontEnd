@@ -9,7 +9,7 @@
                 <div class="page-content-home">
                         <div class="col-5">
                                 <div class="bloc-btn-setting">
-                                        <button type="button" class="btn btn-secondary btn-lg btn-block btn-event">Parametre</button>
+                                        <button type="button" [routerLink]="['/admin/parametre']" class="btn btn-secondary btn-lg btn-block btn-event">Parametre</button>
                                 </div>
                                 <div class="col-10">
                                         <div>
@@ -37,7 +37,7 @@
                                                         </ul>
                                                 </div>
                                                 <div class="bloc-playlist-btn">
-                                                        <button type="button" class="btn btn-warning btn-block">Voir
+                                                        <button type="button" [routerLink]="['/admin/playlist']" class="btn btn-warning btn-block">Voir
                                                                 tout les Playlist</button>
                                                 </div>
                                         </div>
@@ -65,7 +65,7 @@
                                                 </ul>
                                         </div>
                                         <div class="bloc-playlist-btn">
-                                                <button type="button" class="btn btn-secondary btn-lg btn-block btn-event">Voir
+                                                <button type="button" [routerLink]="['/admin/evenement']" class="btn btn-secondary btn-lg btn-block btn-event">Voir
                                                         Voir tout les Evenement</button>
                                         </div>
                                 </div>
