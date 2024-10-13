@@ -2,4 +2,74 @@
         <div class="col-2">
                 <app-vertical-nav></app-vertical-nav>
         </div>
+        <div class="col-10 page-content ">
+                <div>
+                        <p class="title">Bonjour {{utilisateur.prenom.toUpperCase()}}</p>
+                </div>
+                <div class="page-content-home">
+                        <div class="col-5">
+                                <div class="bloc-btn-setting">
+                                        <button type="button" class="btn btn-secondary btn-lg btn-block btn-event">Parametre</button>
+                                </div>
+                                <div class="col-10">
+                                        <div>
+                                                <p class="bloc-home-title">Playlist</p>
+                                        </div>
+                                        <div class="bloc-playlist">
+                                                <div>
+                                                        <ul class="bloc-list">
+                                                                <li class="bloc-list-index"
+                                                                        *ngFor="let playlist of listPlaylist.slice(0,3)">
+                                                                        <div class="col-2 bloc-playlist-list-img">
+                                                                                <img src="../../../assets/icon/musicalNote.png"
+                                                                                        height="37" alt="">
+                                                                        </div>
+                                                                        <div class="col bloc-playlist-list-text">
+                                                                                {{playlist.nom.toUpperCase()}} <br>
+                                                                                <span>{{playlist.musique.length}}
+                                                                                        Musiques</span>
+                                                                        </div>
+                                                                        <div class="col-3">
+                                                                                <button type="button"
+                                                                                        class="btn btn-light">Modifier</button>
+                                                                        </div>
+                                                                </li>
+                                                        </ul>
+                                                </div>
+                                                <div class="bloc-playlist-btn">
+                                                        <button type="button" class="btn btn-warning btn-block">Voir
+                                                                tout les Playlist</button>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-5">
+                                <div>
+                                        <div>
+                                                <p class="bloc-home-title">Evenement à venir</p>
+                                        </div>
+                                        <div>
+                                                <ul class="bloc-list">
+                                                        <li class="bloc-list-index list-event" *ngFor="let event of listEvent.slice(0,5)">
+                                                                <div class="col-1 bloc-date">
+                                                                        {{event.date | date: 'dd'}}
+                                                                </div>
+                                                                <div class="col">
+                                                                        <b> {{event.nom}}</b> <br>
+                                                                        <p> Playlist : {{event.playlist.nom}}</p>
+                                                                </div>
+                                                                <div class="col-3">
+                                                                        {{event.heureDebut}} - {{event.heureFin}}
+                                                                </div>
+                                                        </li>
+                                                </ul>
+                                        </div>
+                                        <div class="bloc-playlist-btn">
+                                                <button type="button" class="btn btn-secondary btn-lg btn-block btn-event">Voir
+                                                        Voir tout les Evenement</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
 </div>

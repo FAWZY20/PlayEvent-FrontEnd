@@ -11,7 +11,7 @@
                 <button type="button" (click)="newPlaylist()" class="btn btn-warning btn-lg btn-block">Ajouter</button>
             </div>
         </div>
-        <div *ngIf="!isLoading && listPlaylist.length != 0; else elseBlock" #thenBlock>
+        <div *ngIf="!isLoading && listPlaylist.length != 0; else elseBlock">
             <div class="bplaylist">
                 <div *ngFor="let playlists of listPlaylist | paginate: { itemsPerPage: 6, currentPage: p }"
                     class="playlist col-3">

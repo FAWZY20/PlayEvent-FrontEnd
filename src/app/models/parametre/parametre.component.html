@@ -1,0 +1,68 @@
+<div class="container-fluid page">
+    <div class="col-2">
+        <app-vertical-nav></app-vertical-nav>
+    </div>
+    <div class="col-10 page-content">
+        <div class="title-bloc">
+            <p>Profil</p>
+        </div>
+        <div class="col-7">
+            <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+                <div class="form-group row bloc-inputUser">
+                    <label for="email" class="col-sm-3 col-form-label">E-mail</label>
+                    <div class="col-sm-7 mb-3">
+                        <input type="mail" class="form-control inputUser" id="email" [(ngModel)]="utilisateur.mail"
+                            name="mail" required #mail="ngModel">
+                    </div>
+                    <div *ngIf="mailExist" class="alert alert-danger col-sm-7" role="alert">
+                        Cette email existe deja
+                    </div>
+                </div>
+                <div class="form-group row bloc-inputUser">
+                    <label for="Prenom" class="col-sm-3 col-form-label">Prénom</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control inputUser" id="Prenom" [(ngModel)]="utilisateur.prenom"
+                            placeholder="Ajouter votre prenom" name="prenom" required #prenom="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row bloc-inputUser">
+                    <label for="Nom" class="col-sm-3 col-form-label">Nom</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control inputUser" id="Nom" [(ngModel)]="utilisateur.nom"
+                            placeholder="Ajouter votre nom" name="nom" required #nom="ngModel">
+                    </div>
+                </div>
+                <div class="form-group bloc-inputUser inputPwd">
+                    <label for="mdp" class="col-sm-3 col-form-label">Mot de passe</label>
+                    <div class="col">
+                        <div class="col-sm-7">
+                            <button type="button" (click)="setPwd()" class="btn btn-light  btn-newPwd">Définir le nouveau mot de
+                                passe</button>
+                        </div>
+                        <div class="col-sm-8 inputPwd">
+                            <div class="col-sm-9">
+                                <input type="password" *ngIf="showInput" class="form-control inputUser" id="mdp" [(ngModel)]="newPwd"
+                                name="pwd" required #pwd="ngModel">
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="button" *ngIf="showInput" (click)="setPwd()" class="btn btn-light  btn-newPwd">Annuler</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row bloc-inputUser">
+                    <label for="inputRole" class="col-sm-3 col-form-label">Role</label>
+                    <div class="col-sm-7">
+                        <select id="inputRole" class="inputUser form-control" [(ngModel)]="utilisateur.role" name="role"
+                            required #role="ngModel">
+                            <option [ngValue]="undefined" [disabled]="true">Choisir...</option>
+                            <option value="ANIMATEUR">Animateur</option>
+                            <option value="ADMIN">Administrateur</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-warning btn btn-block">Mettre à jour le profil</button>
+            </form>
+        </div>
+    </div>
+</div>
