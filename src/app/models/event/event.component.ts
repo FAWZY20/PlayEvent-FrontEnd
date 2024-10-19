@@ -10,7 +10,7 @@ import { EvenementService } from 'src/app/service/evenement.service';
   styleUrls: ['./event.component.css']
 })
 export class EventComponent {
-  timeLeft: number = 300;
+  timeLeft: number = 180;
   interval: any;
   idEvent: any;
   evenement: Evenement;
@@ -43,7 +43,7 @@ export class EventComponent {
       } else {
         clearInterval(this.interval);
       }
-    }, 1000);
+    }, 600);
   }
 
   formatTime(): string {
