@@ -10,13 +10,17 @@ import { FormEventComponent } from './models/form-event/form-event.component';
 import { UpdateEventComponent } from './models/update-event/update-event.component';
 import { CompteComponent } from './models/compte/compte.component';
 import { FormUserComponent } from './models/form-user/form-user.component';
+import { ParametreComponent } from './models/parametre/parametre.component';
+import { EventComponent } from './models/event/event.component';
 
 const routes: Routes = [
   { path: "", component: ConnexionComponent },
+  { path: "event/:idEvent", component: EventComponent },
   {
     path: "admin",
     children: [
       { path: "", component: HomeComponent },
+      { path: "parametre", component: ParametreComponent },
       {
         path: "compte",
         children: [

@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="bloc-logo">
+        <div class="bloc-logo-img">
+            <img src="../../../assets/icon/bulles.png" alt="bulles" height="50">
+        </div>
+        <div class="bloc-logo-text">
+            <p>PlayEvent</p>
+        </div>
+    </div>
+    <div class="bloc-title-event">
+        Bienvenut à l'evenement : <br/> " {{evenement.nom}} "
+    </div>
+    <div>
+        <p>il vous reste <span class="timer" >{{ formatTime() }}</span> pour choisir la prochaine musique</p>
+    </div>
+    <div class="listMusique">
+        <div *ngFor="let musique of listMusique; let index = index">
+            <div class="bloc-musique">
+                <div class="col-7">
+                    <button type="button" (click)="addLike(musique)" class="btn btn-secondary w-100">{{musique.titre}}<br/> {{musique.artiste}}</button>
+                </div>
+                <div class="col-5 like">
+                    <div class="bloc-like">
+                        <div class="bloc-like-note">
+                            <p class="like-note">{{musique.like}}</p>
+                        </div>
+                        <div>
+                            <img src="../../../assets/icon/like.png" height="40">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

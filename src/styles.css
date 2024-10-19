@@ -19,7 +19,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-weight: bold;
     font-size: 45px;
     display: flex;
-    margin-bottom: 5%;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -108,13 +107,38 @@ label{
 }
 
 .playlist{
-    margin: 4%;
+    margin: 2%;
 }
 
 .notPlaylistTilte{
     font-weight: bold;
     font-size: 30px;
     text-align: center;
+}
+
+.bloc-logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 15%;
+}
+.bloc-logo-img{
+    margin-right: 5%;
+}
+.bloc-logo-text p{
+    font-size: 25px;
+    font-weight: 900;
+    margin: 0;
+}
+
+.bloc-inputUser {
+    margin-bottom: 7% !important;
+}
+
+.inputUser {
+    box-shadow: 1px 1px 5px #555;
 }
 
 .blocNotPlaylistTilte{

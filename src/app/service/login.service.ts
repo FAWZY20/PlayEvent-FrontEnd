@@ -41,7 +41,7 @@ export class LoginService {
   }
 
   logout(){
-    localStorage.removeItem("userAuth");
+    localStorage.clear();
     setTimeout(() => {
       this.route.navigate(['']);
     }, 500);

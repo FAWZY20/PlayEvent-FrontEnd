@@ -42,6 +42,12 @@ export class UtilisateurService {
     this.http.patch(this.usersUrl + `/user/role/${userId}`, role).subscribe(() => window.location.reload())
   }
 
+  updateUser(utilisateur: Utilisateur) {
+    this.http.put<Utilisateur>(this.usersUrl + `/user/${utilisateur.id}`, utilisateur).subscribe(() => {
+      window.location.reload()
+    })
+  }
+
   deleteUser(userId: string) {
     this.http.delete(this.usersUrl + `/user/${userId}`).subscribe(() => window.location.reload())
   }

@@ -1,0 +1,43 @@
+.bloc-title-event{
+    margin-bottom: 10%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bloc-musique{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5%;
+}
+
+.bloc-like{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #18864B;
+    padding: 7%;
+    border-radius: 10px;
+}
+
+.bloc-like-note p{
+    display: contents;
+    font-size: 23px;
+}
+
+.like{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.listMusique{
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+
+.timer{
+    font-size: 20px;
+    font-weight: bold;
+}
