@@ -1,35 +1,65 @@
 <div class="container-fluid">
-    <div class="bloc-logo">
-        <div class="bloc-logo-img">
-            <img src="../../../assets/icon/bulles.png" alt="bulles" height="50">
+    <div *ngIf="evenement.date == dateNow; infoDate">
+        <div class="bloc-logo">
+            <div class="bloc-logo-img">
+                <img src="../../../assets/icon/bulles.png" alt="bulles" height="50">
+            </div>
+            <div class="bloc-logo-text">
+                <p>PlayEvent</p>
+            </div>
         </div>
-        <div class="bloc-logo-text">
-            <p>PlayEvent</p>
+        <div class="bloc-title-event">
+            Bienvenut à l'evenement : <br /> " {{evenement.nom}} "
         </div>
-    </div>
-    <div class="bloc-title-event">
-        Bienvenut à l'evenement : <br/> " {{evenement.nom}} "
-    </div>
-    <div>
-        <p>il vous reste <span class="timer" >{{ formatTime() }}</span> pour choisir la prochaine musique</p>
-    </div>
-    <div class="listMusique">
-        <div *ngFor="let musique of listMusique; let index = index">
-            <div class="bloc-musique">
-                <div class="col-7">
-                    <button type="button" (click)="addLike(musique)" class="btn btn-secondary w-100">{{musique.titre}}<br/> {{musique.artiste}}</button>
-                </div>
-                <div class="col-5 like">
-                    <div class="bloc-like">
-                        <div class="bloc-like-note">
-                            <p class="like-note">{{musique.like}}</p>
-                        </div>
-                        <div>
-                            <img src="../../../assets/icon/like.png" height="40">
+        <div *ngIf="timeLeft != 0; then thenBlock else elseBlock"></div>
+        <ng-template class="listMusique" #thenBlock>
+            <div>
+                <p>il vous reste <span class="timer">{{ formatTime() }}</span> pour choisir la prochaine musique</p>
+            </div>
+            <div *ngFor="let musique of listMusique; let index = index">
+                <div class="bloc-musique">
+                    <div class="col-7">
+                        <button type="button" (click)="addLike(musique)"
+                            class="btn btn-secondary w-100">{{musique.titre}}<br /> {{musique.artiste}}</button>
+                    </div>
+                    <div class="col-5 like">
+                        <div class="bloc-like">
+                            <div class="bloc-like-note">
+                                <p class="like-note">{{musique.like}}</p>
+                            </div>
+                            <div>
+                                <img src="../../../assets/icon/like.png" height="40">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </ng-template>
+        <ng-template #elseBlock>
+            <div class="bloc-musique">
+                <div *ngIf="!musiqueChoisitError">
+                    <div *ngIf="timeLastSong != 0">
+                        <p class="musique">La musique choisit et <br />
+                            <span>" {{musiqueChoisit.titre}} "</span><br /> {{formatTimeLasstSong()}}
+                        </p>
+                    </div>
+                    <div *ngIf="timeLastSong == 0">
+                        <div>
+                            <p>{{lyrics}}</p>
+                        </div>
+                        <div>
+                            <button type="button" (click)="choseNewSong()" class="btn btn-secondary w-100">Choisir nouvelle musique</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="musiqueChoisitError">
+                    <p class="musique">Aucune chanson gagnante</p>
+                    <button type="button" (click)="restarTimer()" class="btn btn-secondary w-100">recommencer</button>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+    <div class="MessageLastEvent" #infoDate>
+        <p >L'evenement et ouvert le <br/> {{evenement.date | date: 'dd/MM/yyyy'}}</p>
     </div>
 </div>

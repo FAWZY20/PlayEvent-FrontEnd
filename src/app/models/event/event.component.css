@@ -10,7 +10,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5%;
+    padding-bottom: 5%;
 }
 
 .bloc-like{
@@ -21,6 +21,25 @@
     background-color: #18864B;
     padding: 7%;
     border-radius: 10px;
+}
+
+.MessageLastEvent{
+    padding-top: 50%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.bloc-musique{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.musique{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .bloc-like-note p{
